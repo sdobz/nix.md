@@ -1,17 +1,6 @@
 #!/usr/bin/env lua
-
--- Uses the src *.tl files
-
-local fullpath = debug.getinfo(1,"S").source:sub(2)
-fullpath = io.popen("realpath '"..fullpath.."'", 'r'):read()
-fullpath = fullpath:gsub('[\n\r]*$','')
-local dirname, filename = fullpath:match('^(.*/)([^/]-)$')
-dirname = dirname or ''
-package.path = package.path .. ";" .. dirname .. "../src/?.lua"
-
-local tl = require("tl")
-tl.loader()
-
-local nixmd = require("nixmd")
-
-nixmd.Run()
+package.path = "./src/?.lua;"
+	.. "./src/?/init.lua;"
+	.. package.path
+require("tl").loader()
+require("nixmd").Run()

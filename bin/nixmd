@@ -1,12 +1,2 @@
 #!/usr/bin/env lua
-
-local fullpath = debug.getinfo(1,"S").source:sub(2)
-fullpath = io.popen("realpath '"..fullpath.."'", 'r'):read()
-fullpath = fullpath:gsub('[\n\r]*$','')
-local dirname, filename = fullpath:match('^(.*/)([^/]-)$')
-dirname = dirname or ''
-package.path = package.path .. ";" .. dirname .. "../build/?.lua"
-
-local nixmd = require("nixmd")
-
-nixmd.Run()
+require("nixmd").Run()
