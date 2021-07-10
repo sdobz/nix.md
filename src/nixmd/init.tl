@@ -6,7 +6,8 @@ local nixmd = {}
 local parse = markdown.new(nix.handle_fence)
 
 function nixmd:Run()
-    local output, _metadata = parse("hello")
+    local input = io.read("*a")
+    local output, _metadata = parse(input)
     print(output)
 end
 
