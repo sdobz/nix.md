@@ -1,0 +1,7 @@
+#!/usr/bin/env lua
+
+local lunamark = require("lunamark")
+local opts = { }
+local writer = lunamark.writer.html.new(opts)
+local parse = lunamark.reader.markdown.new(writer, opts)
+print(parse("Example *bold* text"))
