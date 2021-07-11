@@ -1,6 +1,11 @@
 #!/usr/bin/env lua
-package.path = "./src/?.lua;"
-	.. "./src/?/init.lua;"
-	.. package.path
+
+function addRelPath(rel)
+	package.path = arg[0]:match("(.-)[^\\/]+$") .. rel .. ";" .. package.path
+end
+
+addRelPath("../src/?.lua")
+addRelPath("../src/?/init.lua")
+
 require("tl").loader()
 require("nixmd").Run()

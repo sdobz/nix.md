@@ -39,7 +39,6 @@ let
     };
   });
 
-
   cosmo = pkgs.luaPackages.buildLuarocksPackage (with pkgs; with pkgs.luaPackages; rec {
     pname = "cosmo";
     version = "16.06.04-1";

@@ -1,5 +1,10 @@
 #!/usr/bin/env lua
-package.path = "./build/?.lua;"
-	.. "./build/?/init.lua;"
-	.. package.path
+
+function addRelPath(rel)
+	package.path = arg[0]:match("(.-)[^\\/]+$") .. rel .. ";" .. package.path
+end
+
+addRelPath("../build/?.lua")
+addRelPath("../build/?/init.lua")
+
 require("nixmd").Run()

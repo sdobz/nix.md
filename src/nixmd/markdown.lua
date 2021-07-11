@@ -2,8 +2,6 @@ local lunamark = require("lunamark")
 
 local markdown = {}
 
-local lunamark = require("lunamark")
-
 function markdown.new(fenced_code)
   local writer = lunamark.writer.html.new()
 
